@@ -1,7 +1,7 @@
 # react-native-immersive
 Add Toggle for Android Immersive FullScreen Layout
 
-Note: this project is Android only, and Immersive Full-Screen Mode is first introduced since **Android 4.4 (API Level 19)** [Doc](https://developer.android.com/training/system-ui/immersive.html)
+Note: this project is Android only, and Immersive Full-Screen Mode is first introduced since [Android 4.4 (API Level 19)](https://developer.android.com/training/system-ui/immersive.html)
 
 ## Installation Process
 
