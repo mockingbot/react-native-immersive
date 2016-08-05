@@ -25,22 +25,22 @@ npm install react-native-immersive --save
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"
-  + compile project(':react-native-zip-archive')
+  + compile project(':react-native-immersive')
   }
   ```
 
 * Edit your `android/app/src/main/java/.../MainActivity.java`:
 
   ```diff
-  + import com.rnziparchive.RNZipArchivePackage;
+  + import com.rnimmersive.RNImmersivePackage;
   ```
   
   ```diff
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-        new MainReactPackage(),
-  +     new RNZipArchivePackage()
+        new MainReactPackage()
+  +     , new RNImmersivePackage()
       );
     }
   ```
