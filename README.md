@@ -1,4 +1,4 @@
-# react-native-immersive
+# react-native-immersive [![npm](https://img.shields.io/npm/dm/react-native-immersive.svg)](https://www.npmjs.com/package/react-native-immersive) [![npm](https://img.shields.io/npm/v/react-native-immersive.svg)](https://www.npmjs.com/package/react-native-immersive)
 Add Toggle for Android Immersive FullScreen Layout
 
 Note: this project is Android only, and Immersive Full-Screen Mode is first introduced since [Android 4.4 (API Level 19)](https://developer.android.com/training/system-ui/immersive.html)
@@ -34,7 +34,7 @@ npm install react-native-immersive --save
   ```diff
   + import com.rnimmersive.RNImmersivePackage;
   ```
-  
+
   ```diff
     @Override
     protected List<ReactPackage> getPackages() {
