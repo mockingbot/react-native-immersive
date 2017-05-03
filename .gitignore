@@ -9,6 +9,3 @@ npm-debug.log
 
 # WebStorm
 .idea
-
-# git
-.gitignore

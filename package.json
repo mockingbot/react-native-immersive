@@ -1,6 +1,6 @@
 {
   "name": "react-native-immersive",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Add Toggle for Android Immersive FullScreen Layout",
   "author": "MockingBot",
   "license": "MIT",
@@ -16,8 +16,8 @@
     "menu-bar",
     "fullscreen"
   ],
-  "devDependencies": {
-    "react-native": "^0.28.0"
+  "peerDependencies": {
+    "react-native": "*"
   },
   "homepage": "https://github.com/mockingbot/react-native-immersive",
   "repository": {
