@@ -1,13 +1,9 @@
 {
   "name": "react-native-immersive",
-  "version": "0.0.5",
-  "description": "Add Toggle for Android Immersive FullScreen Layout",
+  "version": "1.0.0",
   "author": "MockingBot",
   "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Add Toggle for Android Immersive FullScreen Layout",
   "keywords": [
     "react-component",
     "react-native",
@@ -16,12 +12,16 @@
     "menu-bar",
     "fullscreen"
   ],
-  "peerDependencies": {
-    "react-native": "*"
-  },
   "homepage": "https://github.com/mockingbot/react-native-immersive",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/mockingbot/react-native-immersive.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.47.0"
   }
 }

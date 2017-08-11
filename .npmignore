@@ -7,8 +7,5 @@
 node_modules/
 npm-debug.log
 
-# WebStorm
-.idea
-
-# git
-.gitignore
+/.*
+/*.tgz

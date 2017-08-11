@@ -7,12 +7,14 @@ Add Toggle for Android Immersive FullScreen Layout
 
 Note: this project is Android only, and Immersive Full-Screen Mode is first introduced since [Android 4.4 (API Level 19)](https://developer.android.com/training/system-ui/immersive.html)
 
+Note: `v1.0.0` should be used with `react-native@>=0.47`. Use `v0.0.5` for `react-native@<=0.46`.
+
 ## Installation Process
 
-* download this from npm
+* download from npm
 
 ```
-npm install react-native-immersive --save
+npm i react-native-immersive
 ```
 
 * Run `react-native link` to automatically link the library.
@@ -30,9 +32,9 @@ npm install react-native-immersive --save
 
   ```diff
   dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
-    compile "com.facebook.react:react-native:+"
+    compile "com.facebook.react:react-native:+"  // From node_modules
   + compile project(':react-native-immersive')
   }
   ```
@@ -59,8 +61,6 @@ npm install react-native-immersive --save
 import Immersive from 'react-native-immersive'
 // or
 import { Immersive } from 'react-native-immersive'
-// or
-const Immersive = require('react-native-immersive')
 
 // methods (Android only, will throw Error on iOS)
 Immersive.on()
