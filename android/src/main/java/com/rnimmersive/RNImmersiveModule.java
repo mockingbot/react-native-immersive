@@ -71,7 +71,9 @@ public class RNImmersiveModule extends ReactContextBaseJavaModule {
 
   public void emitImmersiveStateChangeEvent() {
     if (_reactContext != null) {
+      if (_reactContext.hasActiveCatalystInstance()) {
       _reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("@@IMMERSIVE_STATE_CHANGED", null);
+      }
     }
   }
 
