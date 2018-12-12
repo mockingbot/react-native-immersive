@@ -7,12 +7,17 @@
 * [Basic Usage](#basic-usage)
 * [Restore Immersive State](#restore-immersive-state)
 * [Sample Component](#sample-component)
-* [Unified Compile Version](#unified-compile-version)
+* [Common Problem](#common-problem)
+  - [Unified Compile Version](#unified-compile-version)
+  - [Packages missing from JCenter](#packages-missing-from-jcenter)
 
 Add Toggle for Android Immersive FullScreen Layout
 
+
 Note:
 - this package is Android only, and Immersive Full-Screen Mode is first introduced since [Android 4.4 (API Level 19)][l:immersive]
+- check [release][l:release] for ChangeLog
+- `v2.0.0` and above will build with `gradle@>=3`
 - `v1.0.0` and above should be used with `react-native@>=0.47`
 - `v0.0.5` should be used with `react-native@<=0.46`
 
@@ -32,14 +37,14 @@ Edit `android/settings.gradle`:
 + project(':react-native-immersive').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-immersive/android')
 ```
 
-Edit `android/app/build.gradle`:
+Edit `android/app/build.gradle`: (for versions before `v2.0.0`, use `compile` instead of `implementation` for `gradle@<=2`)
 
 ```diff
 dependencies {
-  compile fileTree(dir: "libs", include: ["*.jar"])
-  compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-  compile "com.facebook.react:react-native:+"  // From node_modules
-+ compile project(':react-native-immersive')
+  implementation fileTree(dir: "libs", include: ["*.jar"])
+  implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+  implementation "com.facebook.react:react-native:+"  // From node_modules
++ implementation project(':react-native-immersive')
 }
 ```
 
@@ -123,8 +128,9 @@ Change the code of `index.js` for testing:
 [example/index.sample.js](example/index.sample.js)
 
 
-## Unified Compile Version
+## Common Problem
 
+#### Unified Compile Version
 ###### solution from SudoPlz [react-native-keychain#68][l:issue68]
 
 When compile ReactNative android,
@@ -146,8 +152,38 @@ subprojects {
 }
 ```
 
+#### Packages missing from JCenter
+###### solution from kerwin1 [react-native-vector-icons#605][l:issue605]
+
+Around 2018/12/10, 
+JCenter received a request from Google, to remove several binaries from their repository.
+But some repos were removed by mistake, 
+causing error like: `Could not resolve com.android.tools.build:gradle:2.3.+.`.
+
+As google removed `gradle v2.2.*` from `JCenter`, so many plugins not work.
+To patch repositories for specific submodules,
+add the following code to `android/build.gradle`:
+
+```
+buildscript { ... }
+allprojects { ... }
+subprojects {
+    if (project.name.contains('react-native-immersive')) {
+        buildscript {
+            repositories {
+                jcenter()
+                maven { url "https://dl.bintray.com/android/android-tools/"  }
+            }
+        }
+    }
+}
+```
+
+
 [i:npm]: https://img.shields.io/npm/v/react-native-immersive.svg
 [i:npm-dm]: https://img.shields.io/npm/dm/react-native-immersive.svg
-[l:npm]: https://www.npmjs.com/package/react-native-immersive
+[l:npm]: https://npm.im/react-native-immersive
 [l:immersive]: https://developer.android.com/training/system-ui/immersive.html
+[l:release]: https://github.com/mockingbot/react-native-immersive/releases
 [l:issue68]: https://github.com/oblador/react-native-keychain/issues/68#issuecomment-304836725
+[l:issue605]: https://github.com/oblador/react-native-vector-icons/issues/605#issuecomment-446195008
